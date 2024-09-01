@@ -8,7 +8,7 @@ public class Main {
   public static void main(String[] args) {
 
     Scanner scanner = new Scanner(System.in);
-    Function function = new Function();
+    StudentManager studentManager = new StudentManager();
     int choice = 0;
 
     while (choice != 6) {
@@ -26,37 +26,37 @@ public class Main {
         String name = scanner.next();
         System.out.println(name + "の点数を入力してください：");
         int score = scanner.nextInt();
-        function.studentsAddition(name, score);
+        studentManager.addStudent(name, score);
       } else if (choice == 2) {
-        if (function.students.isEmpty()) {
+        if (studentManager.studentList.students.isEmpty()) {
           System.out.println("学生情報が登録されていません");
         } else {
           System.out.println("学生の名前を入力してください：");
           String name = scanner.next();
-          function.studentsDelete(name);
+          studentManager.deleteStudent(name);
         }
       } else if (choice == 3) {
-        if (function.students.isEmpty()) {
+        if (studentManager.studentList.students.isEmpty()) {
           System.out.println("学生情報が登録されていません");
         } else {
           System.out.println("学生の名前を入力してください：");
           String name = scanner.next();
           System.out.println("新しく登録する点数を入力してください：");
           int newScore = scanner.nextInt();
-          function.updateScore(name, newScore);
+          studentManager.updateScore(name, newScore);
         }
       } else if (choice == 4) {
-        if (function.students.isEmpty()) {
+        if (studentManager.studentList.students.isEmpty()) {
           System.out.println("学生情報が登録されていません");
         } else {
-          double averageScore = function.calculationAverageScore();
+          double averageScore = studentManager.calculateAverageScore();
           System.out.println("平均点：" + averageScore + "点");
         }
       } else if (choice == 5) {
-        if (function.students.isEmpty()) {
+        if (studentManager.studentList.students.isEmpty()) {
           System.out.println("学生情報が登録されていません");
         } else {
-          function.studentsData();
+          studentManager.displayStudents();
         }
       } else if (choice == 6) {
         System.out.println("プログラムを終了します");
