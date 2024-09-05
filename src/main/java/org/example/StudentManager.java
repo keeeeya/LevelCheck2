@@ -2,17 +2,17 @@ package org.example;
 
 public class StudentManager {
 
-  StudentList studentList = new StudentList();
+  Student student = new Student();
 
-  public void addStudent(String name, int score) {
-    studentList.students.add(new Student(name, score));
+  public void add(String name, int score) {
+    student.studentList.add(new Student(name, score));
   }
 
-  public void deleteStudent(String name) {
+  public void delete(String name) {
     boolean studentFound = false;
-    for (Student student : studentList.students) {
-      if (student.name.equals(name)) {
-        studentList.students.removeIf(studentDelete -> studentDelete.name.equals(name));
+    for (Student students : student.studentList) {
+      if (students.name.equals(name)) {
+        student.studentList.removeIf(studentDelete -> studentDelete.name.equals(name));
         studentFound = true;
         break;
       }
@@ -24,7 +24,7 @@ public class StudentManager {
 
   public void updateScore(String name, int newScore) {
     boolean studentFound = false;
-    for (Student student : studentList.students) {
+    for (Student student : student.studentList) {
       if (student.name.equals(name)) {
         student.score = newScore;
         studentFound = true;
@@ -38,14 +38,14 @@ public class StudentManager {
 
 
   public double calculateAverageScore() {
-    return studentList.students.stream().mapToInt(student -> student.score)
+    return student.studentList.stream().mapToInt(student -> student.score)
         .average()
         .orElse(0.0);
   }
 
-  public void displayStudents() {
+  public void display() {
     System.out.println("学生一覧:");
-    for (Student student : studentList.students) {
+    for (Student student : student.studentList) {
       System.out.println(student.name + ":" + student.score + "点");
     }
   }

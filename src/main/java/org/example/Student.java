@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Student {
 
   String name;
@@ -8,6 +11,12 @@ public class Student {
   Student(String name, int score) {
     this.name = name;
     this.score = score;
+  }
+
+  public List<Student> studentList;
+
+  public Student() {
+    this.studentList = new ArrayList<>();
   }
 
 }

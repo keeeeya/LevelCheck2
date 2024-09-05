@@ -26,17 +26,17 @@ public class Main {
         String name = scanner.next();
         System.out.println(name + "の点数を入力してください：");
         int score = scanner.nextInt();
-        studentManager.addStudent(name, score);
+        studentManager.add(name, score);
       } else if (choice == 2) {
-        if (studentManager.studentList.students.isEmpty()) {
+        if (studentManager.student.studentList.isEmpty()) {
           System.out.println("学生情報が登録されていません");
         } else {
           System.out.println("学生の名前を入力してください：");
           String name = scanner.next();
-          studentManager.deleteStudent(name);
+          studentManager.delete(name);
         }
       } else if (choice == 3) {
-        if (studentManager.studentList.students.isEmpty()) {
+        if (studentManager.student.studentList.isEmpty()) {
           System.out.println("学生情報が登録されていません");
         } else {
           System.out.println("学生の名前を入力してください：");
@@ -46,17 +46,17 @@ public class Main {
           studentManager.updateScore(name, newScore);
         }
       } else if (choice == 4) {
-        if (studentManager.studentList.students.isEmpty()) {
+        if (studentManager.student.studentList.isEmpty()) {
           System.out.println("学生情報が登録されていません");
         } else {
           double averageScore = studentManager.calculateAverageScore();
           System.out.println("平均点：" + averageScore + "点");
         }
       } else if (choice == 5) {
-        if (studentManager.studentList.students.isEmpty()) {
+        if (studentManager.student.studentList.isEmpty()) {
           System.out.println("学生情報が登録されていません");
         } else {
-          studentManager.displayStudents();
+          studentManager.display();
         }
       } else if (choice == 6) {
         System.out.println("プログラムを終了します");
